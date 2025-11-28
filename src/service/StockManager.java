@@ -66,4 +66,42 @@ public class StockManager {
             System.out.println("-----");
         }
     }
+
+    // Update quantity to an exact value
+    public boolean updateQuantity(String id, int newQty) {
+        Cloth c = findById(id);
+        if (c == null) return false;
+        if (newQty < 0) return false; // prevent negative stock
+        c.setQuantity(newQty);
+        return true;
+    }
+
+    // Adjust stock by a delta (+restock / -sell)
+    public boolean increaseStock(String id, int delta) {
+        if (delta <= 0) return false;
+        Cloth c = findById(id);
+        if (c == null) return false;
+        c.setQuantity(c.getQuantity() + delta);
+        return true;
+    }
+
+    public boolean decreaseStock(String id, int delta) {
+        if (delta <= 0) return false;
+        Cloth c = findById(id);
+        if (c == null) return false;
+        int newQty = c.getQuantity() - delta;
+        if (newQty < 0) return false; // don’t go below zero
+        c.setQuantity(newQty);
+        return true;
+    }
+
+    // Update price
+    public boolean updatePrice(String id, double newPrice) {
+        Cloth c = findById(id);
+        if (c == null) return false;
+        if (newPrice < 0) return false; // prevent negative price
+        c.setPrice(newPrice);
+        return true;
+    }
+
 }

@@ -36,6 +36,17 @@ public abstract class Cloth {
         return size;
     }
 
+    public void setQuantity(int quantity) { this.quantity = quantity; }
+
+    public void setPrice(double price) { this.price = price; }
+
+    public void setColor(String color) { this.color = color; }
+
+    public void setSize(String size) { this.size = size; }
+
+    public void setName(String name) { this.name = name; }
+
+
     public String toString(){
         return id+"\n"+name+"\n"+quantity+"\n"+price+"\n"+color+"\n"+size;
     }
