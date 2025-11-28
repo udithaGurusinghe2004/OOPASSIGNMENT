@@ -15,16 +15,18 @@ public class StockManager {
      * Add a new item to stock.
      * @return true if added, false if item is null, id invalid, or id already exists.
      */
+
     public boolean add(Cloth item) {
         if (item == null) return false;
-
         String id = item.getId();
-        if (id == null || id.isEmpty()) return false;
-
-        if (items.containsKey(id)) return false; // Prevent duplicate IDs
+        if (id == null || id.isEmpty())
+            return false;
+        if (items.containsKey(id))
+            return false;
         items.put(id, item);
         return true;
     }
+
 
     /**
      * Remove an item by id.
