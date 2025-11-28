@@ -31,8 +31,8 @@ public class Shirt extends Cloth{
     private static String nullSafe(String s) {
         return s == null ? "" : s;
     }
-    @Overridepublic String getCategory() {
+    @Override
+    public String getCategory() {
         return "Shirt";
     } // fix typo from "Shrit"
-
-    }}
+}
