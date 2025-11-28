@@ -44,6 +44,9 @@ public class StockManager {
         if (id == null || id.isEmpty()) return null;
         return items.get(id);
     }
+    public void clear() {
+        items.clear();
+    }
 
     /**
      * Read-only view of all items (optional).
