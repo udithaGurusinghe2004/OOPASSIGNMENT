@@ -15,4 +15,20 @@ public class CottonTrouser extends Cloth{
         return super.toString();
     }
 
+    @Override
+    public String toCsv() {
+        return String.join(",",
+                nullSafe(getId()),
+                nullSafe(getName()),
+                String.valueOf(getQuantity()),
+                String.valueOf(getPrice()),
+                nullSafe(getColor()),
+                nullSafe(getSize()),
+                "",
+                "CottonTrouser"
+        );
+    }
+    private static String nullSafe(String s) { return s == null ? "" : s; }
+
+
 }
