@@ -18,7 +18,25 @@ public class Denim extends Cloth{
     }
     @Override
     public String toString(){
+
         return super.toString()+"\n"+fit ;
     }
-
+    @Override
+    public String toCsv() {
+        // For Denim, include 'fit' before 'category'
+        return String.join(",",
+                nullSafe(getId()),
+                nullSafe(getName()),
+                String.valueOf(getQuantity()),
+                String.valueOf(getPrice()),
+                nullSafe(getColor()),
+                nullSafe(getSize()),
+                nullSafe(getFit()),
+                nullSafe(getCategory())
+        );
+    }
+    private static String nullSafe(String s) {
+        return s == null ? "" : s;
+    }
 }
+
