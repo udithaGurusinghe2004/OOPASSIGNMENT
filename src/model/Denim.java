@@ -19,7 +19,7 @@ public class Denim extends Cloth{
     @Override
     public String toString(){
 
-        return super.toString()+fit+"\n";
+        return super.toString()+"Fit/Regular: "+fit+"\n";
     }
     @Override
     public String toCsv() {
