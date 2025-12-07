@@ -11,7 +11,7 @@ public class Shirt extends Cloth{
 
     @Override
     public String toString() {
-        return super.toString()+"\n"+sleeveType;
+        return super.toString()+sleeveType;
     }
 
     @Override

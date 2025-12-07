@@ -48,7 +48,7 @@ public abstract class Cloth {
 
 
     public String toString(){
-        return id+"\n"+name+"\n"+quantity+"\n"+price+"\n"+color+"\n"+size;
+        return "\n"+id+"\n"+name+"\n"+quantity+"\n"+price+"\n"+color+"\n"+size+"\n";
     }
     public abstract String getCategory();
 

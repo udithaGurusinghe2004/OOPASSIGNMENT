@@ -567,7 +567,7 @@ public class Main {
     btnPrintAll.addActionListener(e -> {
     StringBuilder sb = new StringBuilder();
     for (var item : manager.listAll()) {
-        sb.append(item.toString()).append("/n  "); // simple format; relies on each model's toString()
+        sb.append(item.toString()).append("\n  "); // simple format; relies on each model's toString()
     }
     outputArea.setText(sb.toString());
     outputArea.setCaretPosition(0); //position make to top
