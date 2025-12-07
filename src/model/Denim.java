@@ -1,7 +1,7 @@
 package model;
 
 public class Denim extends Cloth{
-    private String fit;
+    public String fit;
 
     public Denim(String id, String name,int quantity,double price,String color,String size,String fit){
         super(id,name,quantity,price,color,size);

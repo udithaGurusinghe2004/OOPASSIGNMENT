@@ -11,11 +11,7 @@ public class StockManager {
     // In-memory store: key = id, value = the Cloth object (Denim/Shirt/TShirt)
     private final Map<String, Cloth> items = new HashMap<>();
 
-    /**
-     * Add a new item to stock.
-     * @return true if added, false if item is null, id invalid, or id already exists.
-     */
-
+    // Add a new item to stock.
     public boolean add(Cloth item) {
         if (item == null) return false;
         String id = item.getId();
@@ -28,18 +24,13 @@ public class StockManager {
     }
 
 
-    /**
-     * Remove an item by id.
-     * @return true if removed, false if id invalid or not found.
-     */
+    // Remove an item by id.
     public boolean remove(String id) {
         if (id == null || id.isEmpty()) return false;
         return items.remove(id) != null;
     }
 
-    /**
-     * Lookup helper (optional, useful for tests).
-     */
+    // Lookup helper (for tests)
     public Cloth findById(String id) {
         if (id == null || id.isEmpty()) return null;
         return items.get(id);
@@ -48,17 +39,12 @@ public class StockManager {
         items.clear();
     }
 
-    /**
-     * Read-only view of all items (optional).
-     */
+    //Read-only view of all items
     public Collection<Cloth> listAll() {
         return Collections.unmodifiableCollection(items.values());
     }
 
-    /**
-     * Quick printer for debugging (optional).
-     * Uses polymorphism: getCategory() comes from subclass; toString() prints your lines.
-     */
+    // Quick printer for debugging
     public void printAll() {
         for (Cloth item : items.values()) {
             System.out.println(item.getCategory());
@@ -76,7 +62,7 @@ public class StockManager {
         return true;
     }
 
-    // Adjust stock by a delta (+restock / -sell)
+    // Adjust stock
     public boolean increaseStock(String id, int delta) {
         if (delta <= 0) return false;
         Cloth c = findById(id);
@@ -90,7 +76,7 @@ public class StockManager {
         Cloth c = findById(id);
         if (c == null) return false;
         int newQty = c.getQuantity() - delta;
-        if (newQty < 0) return false; // don’t go below zero
+        if (newQty < 0) return false;
         c.setQuantity(newQty);
         return true;
     }

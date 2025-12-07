@@ -10,15 +10,10 @@ import java.util.List;
 
 public class CsvStorage {
 
-    // Keep the header in sync with Step 2 schema
     private static final String HEADER = "id,name,quantity,price,color,size,extra,category";
 
-    /**
-     * Save inventory to CSV (overwrite).
-     * @param filePath path to write (e.g., "inventory.csv")
-     * @param items iterable collection from StockManager.listAll()
-     * @return true if save succeeded, false otherwise
-     */
+
+    // Save inventory items in CSV file.
     public static boolean save(String filePath, Iterable<Cloth> items) {
         try (BufferedWriter bw = new BufferedWriter(
                 new OutputStreamWriter(new FileOutputStream(filePath), StandardCharsets.UTF_8))) {
@@ -37,11 +32,7 @@ public class CsvStorage {
         }
     }
 
-    /**
-     * Load inventory items from CSV file.
-     * @param filePath path to read (e.g., "inventory.csv")
-     * @return list of Cloth objects reconstructed from rows
-     */
+    // Load inventory items from CSV file.
     public static List<Cloth> load(String filePath) {
         List<Cloth> list = new ArrayList<>();
         File f = new File(filePath);
