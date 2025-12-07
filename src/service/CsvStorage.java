@@ -31,7 +31,8 @@ public class CsvStorage {
             }
             return true;
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Failed to write file: " + filePath);
+            System.err.println("Reason: " + e.getMessage());
             return false;
         }
     }
@@ -68,7 +69,8 @@ public class CsvStorage {
                 if (item != null) list.add(item);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error reading file: " + filePath);
+            System.err.println("Reason: " + e.getMessage());
         }
         return list;
     }

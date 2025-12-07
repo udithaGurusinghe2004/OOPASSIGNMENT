@@ -2,13 +2,6 @@ package model;
 
 public class ClothFactory {
 
-    /**
-     * Create Cloth from a CSV row in the format:
-     * id,name,quantity,price,color,size,extra,category
-     *
-     * @param cols array of 8 elements (split from CSV)
-     * @return specific Cloth subclass instance, or null if invalid/unknown category
-     */
     public static Cloth fromCsvRow(String[] cols) {
         if (cols == null || cols.length < 8) return null;
 
@@ -43,10 +36,16 @@ public class ClothFactory {
     }
 
     private static int parseInt(String s, int def) {
-        try { return Integer.parseInt(s); } catch (Exception e) { return def; }
+        try { return Integer.parseInt(s);
+        } catch (Exception e) {
+            return def;
+        }
     }
     private static double parseDouble(String s, double def) {
-        try { return Double.parseDouble(s); } catch (Exception e) { return def; }
+        try { return Double.parseDouble(s);
+        } catch (Exception e) {
+            return def;
+        }
     }
 }
 
